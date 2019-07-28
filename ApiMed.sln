@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiMed", "ApiMed\ApiMed.csproj", "{34746906-D010-4203-B36D-EC41B24797AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{60DE1399-7214-4235-AEF8-DD944FBF6153}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicLayer", "LogicLayer\LogicLayer.csproj", "{F35AC466-4380-43CF-A852-0662F139C21E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{34746906-D010-4203-B36D-EC41B24797AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34746906-D010-4203-B36D-EC41B24797AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34746906-D010-4203-B36D-EC41B24797AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60DE1399-7214-4235-AEF8-DD944FBF6153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60DE1399-7214-4235-AEF8-DD944FBF6153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60DE1399-7214-4235-AEF8-DD944FBF6153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60DE1399-7214-4235-AEF8-DD944FBF6153}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F35AC466-4380-43CF-A852-0662F139C21E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F35AC466-4380-43CF-A852-0662F139C21E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F35AC466-4380-43CF-A852-0662F139C21E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F35AC466-4380-43CF-A852-0662F139C21E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
