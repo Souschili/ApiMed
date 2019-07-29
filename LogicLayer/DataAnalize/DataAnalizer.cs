@@ -38,11 +38,14 @@ namespace LogicLayer.DataAnalize
         /// <returns></returns>
         public object GetDataByName(string str)
         {
-            var s = str.Split(' ');
-            object t = rootObject.parameter.FirstOrDefault().resource.expansion.contains.
-                Where(x=>x.display.ToLower().Contains(str.ToLower())).
-                Select(x=> new {id=x.code,x.display });
+            //var s = str.Split(' ');
+            //object t = rootObject.parameter.FirstOrDefault().resource.expansion.contains.
+            //   Where(x=>x.display.ToLower().Contains(str.ToLower())).
+            //    Select(x=> new {id=x.code,x.display });
 
+            object t= rootObject.parameter.FirstOrDefault().resource.expansion.contains.
+                Where(x => x.display.ToLower().Contains(str.ToLower())).
+                Select(x => new { id = x.code, x.display }).FirstOrDefault();
             //var jsonrezult = JsonConvert.SerializeObject(t);
             return t;
         }
