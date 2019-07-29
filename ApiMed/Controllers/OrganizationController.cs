@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LogicLayer.DataAnalize;
-using Microsoft.AspNetCore.Http;
+﻿using LogicLayer.DataAnalize;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiMed.Controllers
@@ -21,20 +16,37 @@ namespace ApiMed.Controllers
             this.data = dataAnalizer;
         }
 
-
         
+        //GET api/organization?search=
         [HttpGet]
         public ActionResult<object> Get(string search)
         {
+            if(search==null)
+            {
+                //пока так,так как по умолчанию это корневой маршрут 
+                //заменить надпись если неустраивает
+                return "Bad Request";
+            }
             return data.GetDataByName(search);
         }
 
-        [HttpGet]
-        public ActionResult<object>GetGuid(string guid)
+        // GET api/organization/guid
+        [HttpGet("{guid}")]
+        public ActionResult<object> GetGuid(string guid)
         {
-            return
+            //если ноль мы дико сожалеем о чем и сообщаем
+            return data.GetDataByGuid(guid) ?? BadRequest("No data dude sorry !");
         }
 
+       ///GET api/organization/query?
+       [HttpGet]
+       [Route("query")]
+       public ActionResult<object> Get(int skip=0,int take=0,string orderby="name")
+       {
+       
+           
+           return data.GetDataByQuery(skip,take,orderby) ;
+       }
 
 
         [HttpGet]

@@ -9,6 +9,7 @@ namespace LogicLayer.DataAnalize
     {
         object GetDataByName(string s);
         object GetDataByGuid(string q);
+        object GetDataByQuery(int skip, int take, string orderby);
     }
 
 
