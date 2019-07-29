@@ -41,11 +41,11 @@ namespace ApiMed.Controllers
        ///GET api/organization/query?
        [HttpGet]
        [Route("query")]
-       public ActionResult<object> Get(int skip=0,int take=0,string orderby="name")
+       public ActionResult<object> Get(string query,int skip=0,int take=0,string orderby="name")
        {
        
            
-           return data.GetDataByQuery(skip,take,orderby) ;
+           return data.GetDataByQuery(query,skip,take,orderby) ;
        }
 
 

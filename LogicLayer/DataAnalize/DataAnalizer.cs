@@ -12,7 +12,7 @@ namespace LogicLayer.DataAnalize
     {
         private IDataRepository dataRepository;
         private RootObject rootObject { get; set; }
-        private List<Contain> contains { get; set; }
+        private List<Contain> contains { get; set; } //для упрощения (удалить)
 
         
 
@@ -38,10 +38,11 @@ namespace LogicLayer.DataAnalize
         /// <returns></returns>
         public object GetDataByName(string str)
         {
-
-            object t = rootObject?.parameter.FirstOrDefault().resource.expansion.contains.
+            var s = str.Split(' ');
+            object t = rootObject.parameter.FirstOrDefault().resource.expansion.contains.
                 Where(x=>x.display.ToLower().Contains(str.ToLower())).
                 Select(x=> new {id=x.code,x.display });
+
             //var jsonrezult = JsonConvert.SerializeObject(t);
             return t;
         }
@@ -63,13 +64,28 @@ namespace LogicLayer.DataAnalize
 
 
 
-       
+       /// <summary>
+       /// Постраничный вывод
+       /// </summary>
+       /// <param name="skip">пропустить</param>
+       /// <param name="take">азять</param>
+       /// <param name="orderby">сортировать</param>
+       /// <returns></returns>
 
-        public object GetDataByQuery(int skip, int take, string orderby)
-        {  
-                object t = rootObject.parameter.FirstOrDefault().resource.expansion.contains.
+        public object GetDataByQuery(string query,int skip, int take, string orderby)
+        {
+            object t;
+            if(String.IsNullOrWhiteSpace(query))
+            {
+                t = rootObject.parameter.FirstOrDefault().resource.expansion.contains.
                 Skip(skip).Take(take).Select(x => new { id = x.code, x.display }).OrderBy(x => x.display);
                 return t;
+            }
+                t = rootObject.parameter.FirstOrDefault().resource.expansion.contains.
+                Where(x => x.display.ToLower().Contains(query.ToLower())).Skip(skip).Take(take).
+                Select(x => new { id = x.code, x.display });
+
+            return t;
            
         }
     }
